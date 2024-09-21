@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Download Files</title>
+    <link rel="stylesheet" type="text/css" href="/static/download.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #000000;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li style="background-color: #333;"><a href="/home">Home</a></li>
+            <li style="background-color: #333;"><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <img src="/static/Images/vecteezy_cloud-computing-modern-flat-concept-for-web-banner-design_5868377.jpg" alt="Office Technology" class="background-image">
+    <h1>Available Files</h1>
+    <ul class="table-list">
+        {% for file in files %}
+            <li>{{ file['name'] }} <a href="/download/{{ drive }}/{{ file['name'] }}/{{ file['id'] }}">Download</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
